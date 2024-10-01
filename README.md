@@ -6,7 +6,6 @@ Este repositório contém o código-fonte de um site para uma loja de hardware, 
 
 - `frontend/`: Contém os arquivos do front-end do site.
   - `index.html`: Página principal da loja.
-  - `styles.css`: Estilos CSS para o front-end.
 
 - `admin/`: Contém os arquivos da área administrativa
  - `admin.html`: Página admin da loja.
