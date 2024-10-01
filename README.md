@@ -34,8 +34,7 @@ Clone o repositório para o seu computador:
 Copie o link HTTPS ou SSH do repositório, dependendo de como você deseja cloná-lo.
 
 5- Clone o repositório:
-   git clone https://github.com/SEU_USUARIO/my-hardware-store.git
-Navegue até o diretório do projeto:
+   use o comando: git clone https://github.com/SEU_USUARIO/my-hardware-store.git
 
 6- Faça as mudanças necessarias no git:
 6.1 git clone
@@ -60,3 +59,5 @@ O que faz: Envia (ou "empurra") suas alterações para o repositório remoto na 
 ### Como Acessar o Site
 
 O site está hospedado no GitHub Pages. Você pode acessá-lo através configurações -> pages e la esta o site
+
+https://rafadu4rte.github.io/prova/
