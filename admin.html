@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Loja de Hardware</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .produtos-container {
+            margin-bottom: 20px;
+        }
+
+        .produto {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        .add-product {
+            margin-bottom: 20px;
+        }
+
+        .add-product input {
+            margin-right: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin - Loja de Hardware</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Voltar à Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="add-product">
+            <h2>Adicionar Produto</h2>
+            <input type="text" id="productName" placeholder="Nome do Produto">
+            <input type="text" id="productPrice" placeholder="Preço do Produto">
+            <button onclick="addProduct()">Adicionar</button>
+        </section>
+
+        <section class="produtos-container">
+            <h2>Lista de Produtos</h2>
+            <div id="productList">
+                <!-- Produtos serão adicionados aqui dinamicamente -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loja de Hardware. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const productList = [];
+
+        function addProduct() {
+            const nameInput = document.getElementById('productName');
+            const priceInput = document.getElementById('productPrice');
+            const name = nameInput.value;
+            const price = priceInput.value;
+
+            if (name && price) {
+                productList.push({ name, price });
+                nameInput.value = '';
+                priceInput.value = '';
+                renderProducts();
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        }
+
+        function renderProducts() {
+            const productListDiv = document.getElementById('productList');
+            productListDiv.innerHTML = '';
+
+            productList.forEach((product, index) => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'produto';
+                productDiv.innerHTML = `
+                    <span>${product.name} - R$ ${product.price}</span>
+                    <button onclick="removeProduct(${index})">Remover</button>
+                `;
+                productListDiv.appendChild(productDiv);
+            });
+        }
+
+        function removeProduct(index) {
+            productList.splice(index, 1);
+            renderProducts();
+        }
+    </script>
+</body>
+</html>
